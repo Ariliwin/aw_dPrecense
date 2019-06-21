@@ -1,0 +1,25 @@
+﻿Bienvenue sur l'aide d'installation du module dprecense d'Ariliwin crée en reprenant les scripts anglais.
+
+Tous dabord allez sur : https://discordapp.com/developers/applications/
+
+Créer une application puis récupérée les informations suivantes : 
+- CLIENT ID 
+
+Pour mettre les images ceci se passe dans "Rich Presence" les noms des images doit être identique que sur le panel. Par la suite, sur votre server.cfg/config.cfg ou autres ajouté la ligne suivante :
+- start aw_dPrecense
+
+Pour afficher le nombre de joueurs sur 64 il faut ajouter ceci :
+
+  players = {}
+  for i = 0, 255 do
+      if NetworkIsPlayerActive( i ) then
+          table.insert( players, i )
+      end
+  end
+  SetRichPresence(GetPlayerName(PlayerId()) .. " - ".. #players .. "/64")
+
+Juste après la ligne suivante :
+-- Ici, placé le code dans installation.txt si vous êtes en 64 juste en dessous.
+
+Et supprimer le code après : 
+-- Ici, le code pour un serveur en 32.
